@@ -19,4 +19,8 @@ export class UsersService {
   async getUsers(): Promise<User[]> {
     return this.users;
   }
+
+  async getUser(id: string): Promise<User | null> {
+    return this.users.find((user) => user.id === id) || null;
+  }
 }

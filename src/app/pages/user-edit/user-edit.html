@@ -1,1 +1,5 @@
-<p>user-edit works!</p>
+@if (user) {
+<p>Editing user {{ user.id }}</p>
+} @else {
+<p>Loading user...</p>
+}
