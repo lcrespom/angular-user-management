@@ -1,0 +1,12 @@
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table > thead > tr > th {
+  text-align: left;
+}
+
+.disabled-user {
+  color: red;
+}

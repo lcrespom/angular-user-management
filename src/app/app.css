@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.font-bold {
+  font-weight: bold;
+}

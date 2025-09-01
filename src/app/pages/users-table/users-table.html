@@ -1,0 +1,24 @@
+<h1>Users</h1>
+
+<table class="users-table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Date Expiration</th>
+      <th>Enabled</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track user.id) {
+    <tr [ngClass]="{ 'disabled-user': !user.isEnabled }">
+      <td>{{ user.id }}</td>
+      <td>{{ user.expDate }}</td>
+      <td>{{ user.isEnabled }}</td>
+      <td>
+        <button [routerLink]="['/users', user.id]">Edit</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
