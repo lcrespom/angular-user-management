@@ -1,0 +1,6 @@
+.form-validation-error {
+  display: inline-block;
+  width: 29rem;
+  text-align: right;
+  color: red;
+}

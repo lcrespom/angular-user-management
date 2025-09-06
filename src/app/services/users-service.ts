@@ -12,9 +12,9 @@ export type User = {
 })
 export class UsersService {
   private users: User[] = [
-    { id: 1, userName: 'alice', expDate: '2024-12-31', isEnabled: true },
-    { id: 2, userName: 'bob', expDate: '2023-11-30', isEnabled: false },
-    { id: 3, userName: 'charlie', expDate: '2025-01-15', isEnabled: true },
+    { id: 1, userName: 'alice', expDate: '2026-12-31', isEnabled: true },
+    { id: 2, userName: 'bob', expDate: '2026-11-30', isEnabled: false },
+    { id: 3, userName: 'charlie', expDate: '2025-12-15', isEnabled: true },
   ];
 
   async getUsers(): Promise<User[]> {
@@ -26,7 +26,7 @@ export class UsersService {
   }
 
   async saveUser(user: User) {
-    user.id = this.users.length;
+    user.id = this.users.length + 1;
     this.users.push(user);
   }
 }

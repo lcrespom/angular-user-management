@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LabelInputVal } from '../label-input-val/label-input-val';
 import { User } from '../../services/users-service';
+import { FormValidationUtils } from '../../utils/form-validation-utils';
 
 const VALID_NAME = [Validators.required, Validators.minLength(5), Validators.maxLength(15)];
 const VALID_PASSWORD = VALID_NAME;
@@ -17,13 +18,19 @@ export class NewUserForm {
 
   fb = inject(FormBuilder);
 
-  userForm = this.fb.group({
-    userName: ['', VALID_NAME],
-    expDate: [this.getInitialDate()],
-    password1: ['', VALID_PASSWORD],
-    password2: ['', VALID_PASSWORD],
-    enabled: [false],
-  });
+  userForm = this.fb.group(
+    {
+      userName: ['', VALID_NAME],
+      expDate: [this.getInitialDate()],
+      password1: ['', VALID_PASSWORD],
+      password2: ['', VALID_PASSWORD],
+      enabled: [false],
+    },
+    {
+      // Form-level validators
+      validators: [FormValidationUtils.compareFields('password1', 'password2')],
+    }
+  );
 
   onSubmit() {
     console.log(this.userForm.value);

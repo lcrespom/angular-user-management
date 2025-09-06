@@ -13,7 +13,7 @@
     @for (user of users; track user.id) {
     <tr [ngClass]="{ 'disabled-user': !user.isEnabled }">
       <td>{{ user.userName }}</td>
-      <td>{{ user.expDate }}</td>
+      <td>{{ user.expDate | date : 'shortDate' }}</td>
       <td>{{ user.isEnabled ? 'Yes' : 'No' }}</td>
       <td>
         <button class="btn btn-primary" [routerLink]="['/users', user.id]">Edit</button>

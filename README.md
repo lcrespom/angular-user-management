@@ -4,12 +4,12 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## ToDo
 
-- [ ] Complete edit user
 - [x] Add user
-- [ ] Form validations
+- [x] Form validations
   - [x] username.length >= 5 <= 15
   - [x] same as above for password
-  - [ ] Passwords must match
+  - [x] Passwords must match
+- [ ] Edit user
 - [ ] Unit test
 - [ ] Remove unused CSS files
 - Nice to have
