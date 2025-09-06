@@ -33,7 +33,6 @@ export class NewUserForm {
   );
 
   onSubmit() {
-    console.log(this.userForm.value);
     if (this.userForm.invalid) {
       // This shows all validation errors
       this.userForm.markAllAsTouched();

@@ -49,10 +49,11 @@
         type="checkbox"
       />
     </div>
+
     <div class="button-row">
       <button class="btn btn-primary">Save</button>
-      @if (userForm.errors && userForm.get('password1')!.touched &&
-      userForm.get('password2')!.touched) {
+      @if (userForm.errors && userForm.controls.password1.touched &&
+      userForm.controls.password2.touched) {
       <span class="form-validation-error">Passwords must match</span>
       }
     </div>

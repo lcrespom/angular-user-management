@@ -1,2 +1,32 @@
 <h2>Edit user</h2>
-<p>ToDo: edit user {{ user.userName }}</p>
+
+<article>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <label-input-val label="Name" [formGroup]="userForm" formControlName="userName" />
+    </div>
+
+    <div class="form-row">
+      <label-input-val
+        label="Expiration Date"
+        [formGroup]="userForm"
+        formControlName="expDate"
+        type="date"
+      />
+    </div>
+
+    <div class="form-row">
+      <!-- Enabled -->
+      <label-input-val
+        label="Enabled"
+        [formGroup]="userForm"
+        formControlName="enabled"
+        type="checkbox"
+      />
+    </div>
+
+    <div class="button-row">
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</article>
