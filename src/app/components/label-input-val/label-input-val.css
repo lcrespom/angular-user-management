@@ -2,6 +2,12 @@
   display: block;
   text-align: right;
   padding: 0.25rem 0;
-  font-size: 86%;
+  font-size: 85%;
   color: red;
+}
+
+.label-input {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 2rem;
 }
