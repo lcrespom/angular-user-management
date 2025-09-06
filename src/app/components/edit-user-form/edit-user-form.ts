@@ -8,7 +8,6 @@ import { LabelInputVal } from '../label-input-val/label-input-val';
   selector: 'edit-user-form',
   imports: [ReactiveFormsModule, LabelInputVal],
   templateUrl: './edit-user-form.html',
-  styleUrl: './edit-user-form.css',
 })
 export class EditUserForm implements OnInit {
   @Input() user!: User;

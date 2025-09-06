@@ -10,8 +10,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
   - [x] same as above for password
   - [x] Passwords must match
 - [x] Edit user
+- [x] Remove unused CSS files
 - [ ] Unit test
-- [ ] Remove unused CSS files
 - Nice to have
   - [ ] Proper user service, storing passwords, etc.
   - [ ] Autofocus on first form input

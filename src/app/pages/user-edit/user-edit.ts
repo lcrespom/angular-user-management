@@ -10,7 +10,6 @@ import { EditUserForm } from '../../components/edit-user-form/edit-user-form';
   selector: 'app-user-edit',
   imports: [NewUserForm, EditUserForm],
   templateUrl: './user-edit.html',
-  styleUrl: './user-edit.css',
 })
 export class UserEdit implements OnInit, OnDestroy {
   private usersService = inject(UsersService);
