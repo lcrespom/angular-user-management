@@ -36,12 +36,13 @@ export class NewUserForm {
     // Emit a save user event
     const formValue = this.userForm.value;
     const user: User = {
-      id: -1,
+      id: -1, // This id will be ignored
       userName: formValue.userName!,
       expDate: formValue.expDate!,
       isEnabled: formValue.enabled!,
       //TODO password is ignored
     };
+    // The user form is valid, so an onSaveUser event is emitted
     this.onSaveUser.emit(user);
   }
 

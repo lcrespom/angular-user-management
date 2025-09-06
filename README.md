@@ -5,7 +5,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## ToDo
 
 - [ ] Complete edit user
-- [ ] Add user
+- [x] Add user
 - [ ] Form validations
   - [x] username.length >= 5 <= 15
   - [x] same as above for password

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { User, UsersService } from '../../services/users-service';
@@ -13,7 +13,8 @@ import { EditUserForm } from '../../components/edit-user-form/edit-user-form';
   styleUrl: './user-edit.css',
 })
 export class UserEdit implements OnInit, OnDestroy {
-  usersService = inject(UsersService);
+  private usersService = inject(UsersService);
+  private router = inject(Router);
   private route = inject(ActivatedRoute);
   public user: User | null = null;
   public userId: string = '';
@@ -42,7 +43,9 @@ export class UserEdit implements OnInit, OnDestroy {
     this.routeSubscription?.unsubscribe();
   }
 
-  handleUserSave(user: User) {
-    console.log('ToDo save user:', user);
+  async handleUserSave(user: User) {
+    await this.usersService.saveUser(user);
+    alert('User saved');
+    this.router.navigate(['/users']);
   }
 }
