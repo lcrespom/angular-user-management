@@ -1,8 +1,18 @@
-<nav class="nav">
-  <a routerLink="/" routerLinkActive="font-bold" [routerLinkActiveOptions]="{ exact: true }"
-    >Home</a
-  >
-  <a routerLink="/users" routerLinkActive="font-bold">Users</a>
-</nav>
+<header>
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a
+      routerLink="/users"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Users</a
+    >
+    <a routerLink="/users/new" routerLinkActive="active-link">New User</a>
+  </nav>
+</header>
 
-<router-outlet />
+<main>
+  <router-outlet />
+</main>

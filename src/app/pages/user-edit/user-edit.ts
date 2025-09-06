@@ -17,8 +17,7 @@ export class UserEdit {
   async ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('id');
     if (userId) {
-      this.user = await this.usersService.getUser(userId);
+      this.user = await this.usersService.getUser(+userId);
     }
-    console.log('Editing user with ID:', userId);
   }
 }

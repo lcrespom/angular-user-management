@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Username</th>
-      <th>Date Expiration</th>
+      <th>Expiration Date</th>
       <th>Enabled</th>
       <th>Actions</th>
     </tr>
@@ -12,7 +12,7 @@
   <tbody>
     @for (user of users; track user.id) {
     <tr [ngClass]="{ 'disabled-user': !user.isEnabled }">
-      <td>{{ user.id }}</td>
+      <td>{{ user.userName }}</td>
       <td>{{ user.expDate }}</td>
       <td>{{ user.isEnabled }}</td>
       <td>

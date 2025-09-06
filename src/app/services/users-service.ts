@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
 export type User = {
-  id: string;
+  id: number;
+  userName: string;
   expDate: string;
   isEnabled: boolean;
 };
@@ -11,16 +12,16 @@ export type User = {
 })
 export class UsersService {
   private users: User[] = [
-    { id: 'alice', expDate: '2024-12-31', isEnabled: true },
-    { id: 'bob', expDate: '2023-11-30', isEnabled: false },
-    { id: 'charlie', expDate: '2025-01-15', isEnabled: true },
+    { id: 1, userName: 'alice', expDate: '2024-12-31', isEnabled: true },
+    { id: 2, userName: 'bob', expDate: '2023-11-30', isEnabled: false },
+    { id: 3, userName: 'charlie', expDate: '2025-01-15', isEnabled: true },
   ];
 
   async getUsers(): Promise<User[]> {
     return this.users;
   }
 
-  async getUser(id: string): Promise<User | null> {
+  async getUser(id: number): Promise<User | null> {
     return this.users.find((user) => user.id === id) || null;
   }
 }
