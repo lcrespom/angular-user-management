@@ -1,7 +1,6 @@
 <h2>Create a new user</h2>
 
 <article>
-  <!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()"> -->
   <!--
     The form layout is different from the spec, because with a natural tab order
     the user would enter name, then first password, then exipry date, then second
@@ -13,26 +12,43 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <!-- User name -->
-      <label class="form-label" for="userName">Name</label>
-      <input formControlName="userName" id="userName" type="text" class="form-input" />
+      <label-input-val label="Name" [formGroup]="userForm" formControlName="userName" />
       <!-- Expiry date -->
-      <label class="form-label ml-2" for="expDate">Expiration Date</label>
-      <input formControlName="expDate" id="expDate" type="date" class="form-input" />
+      <label-input-val
+        label="Expiration Date"
+        [formGroup]="userForm"
+        formControlName="expDate"
+        type="date"
+      />
     </div>
 
     <div class="form-row">
       <!-- Password -->
-      <label class="form-label" for="password1">Password</label>
-      <input formControlName="password1" id="password1" type="password" class="form-input" />
+      <label-input-val
+        label="Password"
+        [formGroup]="userForm"
+        formControlName="password1"
+        type="password"
+      />
       <!-- Repeat password -->
-      <label class="form-label ml-2" for="password2">Repeat Password</label>
-      <input formControlName="password2" id="password2" type="password" class="form-input" />
+      <label-input-val
+        label="Repeat Password"
+        [formGroup]="userForm"
+        formControlName="password2"
+        type="password"
+      />
     </div>
 
     <div class="form-row">
       <!-- Enabled -->
-      <label class="form-label" for="enabled">Enabled</label>
-      <input formControlName="enabled" id="enabled" type="checkbox" class="form-input" />
+      <label-input-val
+        label="Enabled"
+        [formGroup]="userForm"
+        formControlName="enabled"
+        type="checkbox"
+      />
+      <!-- <label class="form-label" for="enabled">Enabled</label>
+      <input formControlName="enabled" id="enabled" type="checkbox" class="form-input" /> -->
     </div>
     <div class="button-row">
       <button class="btn btn-primary">Save</button>

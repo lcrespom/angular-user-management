@@ -6,13 +6,21 @@ body {
 }
 
 /* ----- Custom utility classes -----*/
+.inline-block {
+  display: inline-block;
+}
+
 .ml-2 {
   margin-left: 2rem;
 }
 
+.mr-2 {
+  margin-right: 2rem;
+}
+
 /* ----- Form elements -----*/
 .form-row {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .button-row {
