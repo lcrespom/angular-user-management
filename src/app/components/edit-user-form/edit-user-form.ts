@@ -8,5 +8,5 @@ import { User } from '../../services/users-service';
   styleUrl: './edit-user-form.css',
 })
 export class EditUserForm {
-  @Input() user: User | null = null;
+  @Input() user: User = {} as User;
 }

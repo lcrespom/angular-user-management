@@ -2,6 +2,8 @@
 <p>Loading user...</p>
 } @else if (user) {
 <edit-user-form [user]="user" />
-} @else {
+} @else if (userId === 'new') {
 <new-user-form />
+} @else {
+<p>User not found.</p>
 }

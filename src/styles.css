@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, sans-serif;
@@ -21,4 +20,32 @@ body {
   padding: 0 0.5rem 0 0.5rem;
   border: 1px solid #e0ddd6;
   border-radius: 0.25rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  height: 1.75rem;
+  padding: 0 1rem 0 1rem;
+  background-color: oklch(89.8% 0.01 83.66);
+  color: oklch(24.24% 0.08 264.67);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration-line: none;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background-color: oklch(64.75% 0.196 259.72);
+  border-color: oklch(64.75% 0.196 259.72);
+  color: oklch(100% 0 0);
+}
+
+.btn:hover {
+  background-color: oklch(61.2% 0.18 259.72);
+  border-color: oklch(61.2% 0.18 259.72);
 }
