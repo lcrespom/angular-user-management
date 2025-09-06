@@ -1,6 +1,6 @@
 import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
 
-export class FormUtils {
+export class FormValidationUtils {
   private static getTextError(errors: ValidationErrors) {
     for (const key of Object.keys(errors)) {
       switch (key) {
@@ -24,7 +24,7 @@ export class FormUtils {
   static getFieldError(form: FormGroup, fieldName: string): string | null {
     if (!form.controls[fieldName]) return null;
     const errors = form.controls[fieldName].errors ?? {};
-    return FormUtils.getTextError(errors);
+    return FormValidationUtils.getTextError(errors);
   }
 
   static compareFields(field1: string, field2: string) {
