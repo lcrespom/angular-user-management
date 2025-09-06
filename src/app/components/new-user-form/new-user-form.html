@@ -2,12 +2,13 @@
 
 <article>
   <!--
-    The form layout is different from the spec, because with a natural tab order
-    the user would enter name, then first password, then exipry date, then second
-    password. Having the two passwords in the same row ensures the first password
-    is immediately followed by the second.
-    The alternate approach would be to change the layout or tab order so the user
-    tabs on the first column and then on the second, but that would degrade the UX.
+    The form layout is different from the spec, because with a natural tab order, the user would
+    enter name, then first password, then exipry date, then second password. Having the two
+    passwords in the same row ensures the first password is immediately followed by the second.
+
+    An alternate approach would be to change the layout or tab order so the user tabs on all the
+    input fields of the first column and then on the second, but that would degrade the UX, as it
+    breaks the end-user expectations.
    -->
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="form-row">

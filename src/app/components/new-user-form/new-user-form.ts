@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FormUtils } from '../../utils/form-utils';
 import { LabelInputVal } from '../label-input-val/label-input-val';
 
 const VALID_NAME = [Validators.required, Validators.minLength(5), Validators.maxLength(15)];
@@ -13,8 +12,6 @@ const VALID_PASSWORD = VALID_NAME;
   styleUrl: './new-user-form.css',
 })
 export class NewUserForm {
-  formUtils = FormUtils;
-
   fb = inject(FormBuilder);
 
   userForm = this.fb.group({

@@ -5,6 +5,7 @@ import {
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { FormUtils } from '../../utils/form-utils';
 
 @Component({
   selector: 'label-input-val',
@@ -26,6 +27,14 @@ export class LabelInputVal implements ControlValueAccessor {
   @Input() type: string = 'text';
 
   value: any;
+
+  isValidField() {
+    return FormUtils.isValidField(this.formGroup, this.formControlName);
+  }
+
+  getFieldError() {
+    return FormUtils.getFieldError(this.formGroup, this.formControlName);
+  }
 
   // Store the callbacks from Angular
   private onChange = (value: any) => {};
