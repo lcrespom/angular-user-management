@@ -10,14 +10,14 @@
     The alternate approach would be to change the layout or tab order so the user
     tabs on the first column and then on the second, but that would degrade the UX.
    -->
-  <form>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <!-- User name -->
-      <label class="form-label" for="name">Name</label>
-      <input formControlName="name" id="name" type="text" class="form-input" />
+      <label class="form-label" for="userName">Name</label>
+      <input formControlName="userName" id="userName" type="text" class="form-input" />
       <!-- Expiry date -->
-      <label class="form-label ml-2" for="date">Expiration Date</label>
-      <input formControlName="date" id="date" type="date" class="form-input" />
+      <label class="form-label ml-2" for="expDate">Expiration Date</label>
+      <input formControlName="expDate" id="expDate" type="date" class="form-input" />
     </div>
 
     <div class="form-row">

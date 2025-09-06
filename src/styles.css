@@ -44,6 +44,7 @@ body {
 }
 
 .btn {
+  /* Copied from DaisyUI, then simplified */
   display: inline-flex;
   align-items: center;
   justify-content: center;
