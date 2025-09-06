@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-home',
   imports: [],
-  templateUrl: './home.html',
+  template: '<h1>Welcome to Werfen exercise</h1>',
 })
 export class Home {}
