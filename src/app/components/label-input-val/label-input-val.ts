@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { FormValidationUtils } from '../../utils/form-validation-utils';
 
+type InputValue = string | boolean | null;
+
 @Component({
   selector: 'label-input-val',
   imports: [ReactiveFormsModule],
@@ -26,7 +28,7 @@ export class LabelInputVal implements ControlValueAccessor {
   @Input() formControlName!: string;
   @Input() type: string = 'text';
 
-  value: any;
+  value: InputValue = null;
 
   isValidField() {
     return FormValidationUtils.isValidField(this.formGroup, this.formControlName);
@@ -55,15 +57,15 @@ export class LabelInputVal implements ControlValueAccessor {
   }
 
   // Store the callbacks from Angular. They will be replaced when registered by Angular.
-  private onChange = (value: any) => {};
-  private onTouched = () => {};
+  private onChange: (value: InputValue) => void = () => {};
+  private onTouched: () => void = () => {};
 
   //----- ControlValueAccessor implementation -----
-  writeValue(value: any): void {
+  writeValue(value: InputValue): void {
     this.value = value;
   }
 
-  registerOnChange(fn: (value: any) => void): void {
+  registerOnChange(fn: (value: InputValue) => void): void {
     this.onChange = fn;
   }
 
