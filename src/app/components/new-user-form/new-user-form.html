@@ -1,1 +1,30 @@
-<p>new-user-form works!</p>
+<h2>Create a new user</h2>
+
+<article>
+  <!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()"> -->
+  <form>
+    <div class="form-row">
+      <label class="form-label" for="name">Name</label>
+      <input formControlName="name" id="name" type="text" class="form-input" #focusInput />
+      <!-- <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="text-red-500 text-sm mt-1">
+        Name is required.
+      </div> -->
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="email">Email</label>
+      <input formControlName="email" id="email" type="email" class="form-input" />
+      <!-- <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-red-500 text-sm mt-1">
+        A valid email is required.
+      </div> -->
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="phone">Phone</label>
+      <input formControlName="phone" id="phone" type="text" class="form-input" />
+      <!-- <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched" class="text-red-500 text-sm mt-1">
+        Phone number is required.
+      </div> -->
+    </div>
+  </form>
+</article>
