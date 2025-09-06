@@ -36,23 +36,6 @@ export class LabelInputVal implements ControlValueAccessor {
     return FormValidationUtils.getFieldError(this.formGroup, this.formControlName);
   }
 
-  // Store the callbacks from Angular
-  private onChange = (value: any) => {};
-  private onTouched = () => {};
-
-  // ControlValueAccessor implementation
-  writeValue(value: any): void {
-    this.value = value;
-  }
-
-  registerOnChange(fn: (value: any) => void): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
   // Handle input changes
   onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -69,5 +52,22 @@ export class LabelInputVal implements ControlValueAccessor {
   // Handle blur events
   onBlur(): void {
     this.onTouched();
+  }
+
+  // Store the callbacks from Angular. They will be replaced when registered by Angular.
+  private onChange = (value: any) => {};
+  private onTouched = () => {};
+
+  //----- ControlValueAccessor implementation -----
+  writeValue(value: any): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: (value: any) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
   }
 }

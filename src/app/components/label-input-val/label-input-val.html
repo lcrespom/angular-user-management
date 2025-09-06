@@ -11,7 +11,7 @@
     (blur)="onBlur()"
   />
   @if ( isValidField() ) {
-  <div class="form-text text-danger">
+  <div class="field-validation-error">
     {{ getFieldError() }}
   </div>
   }
