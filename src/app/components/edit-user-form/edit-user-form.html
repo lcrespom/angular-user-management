@@ -3,10 +3,12 @@
 <article>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
+      <!-- Name -->
       <label-input-val label="Name" [formGroup]="userForm" formControlName="userName" />
     </div>
 
     <div class="form-row">
+      <!-- Expiration Date -->
       <label-input-val
         label="Expiration Date"
         [formGroup]="userForm"
