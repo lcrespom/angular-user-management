@@ -16,7 +16,7 @@ export class UserEdit implements OnInit, OnDestroy {
   private usersService = inject(UsersService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-  public user: User | null = null;
+  public user?: User;
   public userId: string = '';
   public loading = false;
   private routeSubscription?: Subscription;
@@ -30,10 +30,11 @@ export class UserEdit implements OnInit, OnDestroy {
         // Route param is a number, fetch the user
         this.loading = true;
         this.user = await this.usersService.getUser(id);
+        console.log(this.user);
         this.loading = false;
       } else {
         // userId is 'new' or invalid
-        this.user = null;
+        this.user = undefined;
       }
     });
   }

@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { User, UsersService } from '../../services/users-service';
@@ -10,7 +10,7 @@ import { User, UsersService } from '../../services/users-service';
   templateUrl: './users-table.html',
   styleUrl: './users-table.css',
 })
-export class UsersTable {
+export class UsersTable implements OnInit {
   usersService = inject(UsersService);
   protected users: User[] = [];
 

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { User } from '../../services/users-service';
 import { LabelInputVal } from '../label-input-val/label-input-val';
@@ -10,20 +10,23 @@ import { LabelInputVal } from '../label-input-val/label-input-val';
   templateUrl: './edit-user-form.html',
   styleUrl: './edit-user-form.css',
 })
-export class EditUserForm {
+export class EditUserForm implements OnInit {
   @Input() user!: User;
   @Output() onSaveUser = new EventEmitter<User>();
 
   fb = inject(FormBuilder);
+  userForm!: FormGroup;
 
-  userForm = this.fb.group({
-    userName: [
-      this.user.userName,
-      [Validators.required, Validators.minLength(5), Validators.maxLength(15)],
-    ],
-    expDate: [this.user.expDate],
-    enabled: [this.user.isEnabled],
-  });
+  ngOnInit() {
+    this.userForm = this.fb.group({
+      userName: [
+        this.user.userName,
+        [Validators.required, Validators.minLength(5), Validators.maxLength(15)],
+      ],
+      expDate: [this.user.expDate],
+      enabled: [this.user.isEnabled],
+    });
+  }
 
   onSubmit() {
     if (this.userForm.invalid) {

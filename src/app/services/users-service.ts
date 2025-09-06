@@ -21,8 +21,8 @@ export class UsersService {
     return this.users;
   }
 
-  async getUser(id: number): Promise<User | null> {
-    return this.users.find((user) => user.id === id) || null;
+  async getUser(id: number): Promise<User | undefined> {
+    return this.users.find((user) => user.id === id);
   }
 
   async saveUser(user: User) {
