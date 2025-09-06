@@ -2,29 +2,40 @@
 
 <article>
   <!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()"> -->
+  <!--
+    The form layout is different from the spec, because with a natural tab order
+    the user would enter name, then first password, then exipry date, then second
+    password. Having the two passwords in the same row ensures the first password
+    is immediately followed by the second.
+    The alternate approach would be to change the layout or tab order so the user
+    tabs on the first column and then on the second, but that would degrade the UX.
+   -->
   <form>
     <div class="form-row">
+      <!-- User name -->
       <label class="form-label" for="name">Name</label>
-      <input formControlName="name" id="name" type="text" class="form-input" #focusInput />
-      <!-- <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="text-red-500 text-sm mt-1">
-        Name is required.
-      </div> -->
+      <input formControlName="name" id="name" type="text" class="form-input" />
+      <!-- Expiry date -->
+      <label class="form-label ml-2" for="date">Expiration Date</label>
+      <input formControlName="date" id="date" type="date" class="form-input" />
     </div>
 
     <div class="form-row">
-      <label class="form-label" for="email">Email</label>
-      <input formControlName="email" id="email" type="email" class="form-input" />
-      <!-- <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-red-500 text-sm mt-1">
-        A valid email is required.
-      </div> -->
+      <!-- Password -->
+      <label class="form-label" for="password1">Password</label>
+      <input formControlName="password1" id="password1" type="password" class="form-input" />
+      <!-- Repeat password -->
+      <label class="form-label ml-2" for="password2">Repeat Password</label>
+      <input formControlName="password2" id="password2" type="password" class="form-input" />
     </div>
 
     <div class="form-row">
-      <label class="form-label" for="phone">Phone</label>
-      <input formControlName="phone" id="phone" type="text" class="form-input" />
-      <!-- <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched" class="text-red-500 text-sm mt-1">
-        Phone number is required.
-      </div> -->
+      <!-- Enabled -->
+      <label class="form-label" for="enabled">Enabled</label>
+      <input formControlName="enabled" id="enabled" type="checkbox" class="form-input" />
+    </div>
+    <div class="button-row">
+      <button class="btn btn-primary">Save</button>
     </div>
   </form>
 </article>

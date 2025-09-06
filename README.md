@@ -11,5 +11,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
   - [ ] same as above for password
   - [ ] Passwords must match
 - [ ] Unit test
+- Nice to have
+  - [ ] Autofocus on first form input
 
 Revisar NgXs
