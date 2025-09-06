@@ -1,15 +1,17 @@
-<div [formGroup]="formGroup" class="mr-2 inline-block">
-  <label class="form-label" [for]="formControlName">{{ label }}</label>
-  <input
-    [formControlName]="formControlName"
-    [id]="formControlName"
-    [type]="type"
-    class="form-input"
-    [value]="type === 'checkbox' ? undefined : value"
-    [checked]="type === 'checkbox' ? value : undefined"
-    (input)="onInput($event)"
-    (blur)="onBlur()"
-  />
+<div [formGroup]="formGroup" class="mr-2 inline-block" style="vertical-align: top">
+  <div>
+    <label class="form-label" [for]="formControlName">{{ label }}</label>
+    <input
+      [formControlName]="formControlName"
+      [id]="formControlName"
+      [type]="type"
+      class="form-input"
+      [value]="type === 'checkbox' ? undefined : value"
+      [checked]="type === 'checkbox' ? value : undefined"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
+    />
+  </div>
   @if ( isValidField() ) {
   <div class="field-validation-error">
     {{ getFieldError() }}

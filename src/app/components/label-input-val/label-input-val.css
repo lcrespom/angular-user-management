@@ -1,0 +1,7 @@
+.field-validation-error {
+  display: block;
+  text-align: right;
+  padding: 0.25rem 0;
+  font-size: 86%;
+  color: red;
+}
