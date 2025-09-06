@@ -3,7 +3,7 @@
 } @else if (user) {
 <edit-user-form [user]="user" />
 } @else if (userId === 'new') {
-<new-user-form />
+<new-user-form (onSaveUser)="handleUserSave($event)" />
 } @else {
 <p>User not found.</p>
 }

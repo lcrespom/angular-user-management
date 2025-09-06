@@ -41,4 +41,8 @@ export class UserEdit implements OnInit, OnDestroy {
     // Unsubscribe to avoid memory leaks
     this.routeSubscription?.unsubscribe();
   }
+
+  handleUserSave(user: User) {
+    console.log('ToDo save user:', user);
+  }
 }

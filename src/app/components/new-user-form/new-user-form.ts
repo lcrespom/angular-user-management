@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LabelInputVal } from '../label-input-val/label-input-val';
+import { User } from '../../services/users-service';
 
 const VALID_NAME = [Validators.required, Validators.minLength(5), Validators.maxLength(15)];
 const VALID_PASSWORD = VALID_NAME;
@@ -12,6 +13,8 @@ const VALID_PASSWORD = VALID_NAME;
   styleUrl: './new-user-form.css',
 })
 export class NewUserForm {
+  @Output() onSaveUser = new EventEmitter<User>();
+
   fb = inject(FormBuilder);
 
   userForm = this.fb.group({
@@ -25,10 +28,21 @@ export class NewUserForm {
   onSubmit() {
     console.log(this.userForm.value);
     if (this.userForm.invalid) {
+      // This shows all validation errors
       this.userForm.markAllAsTouched();
+      // Form is invalid, don't save the user
       return;
     }
-    //ToDo: save user and navigate back to table
+    // Emit a save user event
+    const formValue = this.userForm.value;
+    const user: User = {
+      id: -1,
+      userName: formValue.userName!,
+      expDate: formValue.expDate!,
+      isEnabled: formValue.enabled!,
+      //TODO password is ignored
+    };
+    this.onSaveUser.emit(user);
   }
 
   getInitialDate() {
