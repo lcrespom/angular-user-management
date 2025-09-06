@@ -28,9 +28,11 @@ different, because the password cannot be changed.
 
 - `src/app/components`: this directory contains reusable components.
 
-  - `new-user-form`: the form presented when clicking on the **New User** route.
+  - `new-user-form`: the form presented when clicking on the **New User** route. This
+    form validates the userName and passwords (minimum and maximum lengths), and
+    also checks that the two passwords are identical.
   - `edit-user-form`: the form presented when clicking on the **Edit** button of
-    a user in the user table.
+    a user in the user table. This form does not let the end user update the password.
   - `label-input-val`: forms fields have common behaviors that can be abstracted to a
     reusable component. This component displays the combination of a label, an input field
     and the field validation error messages, if present. When using this component, the
@@ -45,6 +47,21 @@ different, because the password cannot be changed.
   alternate approach could be to implement this as a singleton service and inject it in those
   components that require it.
 
+## Tests
+
+To illustrate how to write tests for the components, the unit test of two components have been
+updated:
+
+- `app.spec.ts`: a new "should render title" test has been added, to check that the home route is
+  displayed. The router is injected and told to navigate to the home route, then the welcome text
+  of the home page is checked for presence.
+
+- `new-userd-form.spec.ts`: two new tests have been added.
+  - One that enters valid data, then submits the form and checks that the onSaveUser event has been
+    emitted, and that the event contents has the user data.
+  - One that enters invalid data, then submits the form and checks that the onSaveUser event has
+    **not** been emitted, and that the form is in an invalid state.
+
 ## ToDo
 
 - [x] Add user
@@ -54,10 +71,10 @@ different, because the password cannot be changed.
   - [x] Passwords must match
 - [x] Edit user
 - [x] Remove unused CSS files
-- [ ] Unit test
+- [x] Unit test
 - Nice to have
   - [ ] Proper user service, storing passwords, etc.
-  - [ ] Autofocus on first form input
-  - [ ] Add a required class for required elements, then add `*` next to the label
-  - [ ] Fade-in the validation error message
-  - [ ] Delete user
+  - [ ] Autofocus on first form input.
+  - [ ] Add a `*` next to the label of mandatory inputs.
+  - [ ] Fade-in the validation error message.
+  - [ ] Delete user.
