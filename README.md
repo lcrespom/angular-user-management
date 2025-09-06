@@ -9,7 +9,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
   - [x] username.length >= 5 <= 15
   - [x] same as above for password
   - [x] Passwords must match
-- [ ] Edit user
+- [x] Edit user
 - [ ] Unit test
 - [ ] Remove unused CSS files
 - Nice to have
@@ -17,3 +17,4 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
   - [ ] Autofocus on first form input
   - [ ] Add a required class for required elements, then add `*` next to the label
   - [ ] Fade-in the validation error message
+  - [ ] Delete user

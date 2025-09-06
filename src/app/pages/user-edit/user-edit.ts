@@ -44,9 +44,15 @@ export class UserEdit implements OnInit, OnDestroy {
     this.routeSubscription?.unsubscribe();
   }
 
-  async handleUserSave(user: User) {
-    await this.usersService.saveUser(user);
-    alert('User saved');
+  async handleAddUser(user: User) {
+    await this.usersService.addUser(user);
+    alert('User added');
+    this.router.navigate(['/users']);
+  }
+
+  async handleUpdateUser(user: User) {
+    await this.usersService.updateUser(user);
+    alert('User updated');
     this.router.navigate(['/users']);
   }
 }

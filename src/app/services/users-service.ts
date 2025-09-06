@@ -7,14 +7,15 @@ export type User = {
   isEnabled: boolean;
 };
 
+// Basic simulation of a user API endpoint. Methods are async to simulate HTTP fetch
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   private users: User[] = [
-    { id: 1, userName: 'alice', expDate: '2026-12-31', isEnabled: true },
-    { id: 2, userName: 'bob', expDate: '2026-11-30', isEnabled: false },
-    { id: 3, userName: 'charlie', expDate: '2025-12-15', isEnabled: true },
+    { id: 1, userName: 'Alice', expDate: '2026-12-31', isEnabled: true },
+    { id: 2, userName: 'Brenda', expDate: '2026-11-30', isEnabled: false },
+    { id: 3, userName: 'Charlie', expDate: '2025-12-15', isEnabled: true },
   ];
 
   async getUsers(): Promise<User[]> {
@@ -25,8 +26,12 @@ export class UsersService {
     return this.users.find((user) => user.id === id);
   }
 
-  async saveUser(user: User) {
+  async addUser(user: User) {
     user.id = this.users.length + 1;
     this.users.push(user);
+  }
+
+  async updateUser(user: User) {
+    this.users = this.users.map((u) => (u.id === user.id ? user : u));
   }
 }

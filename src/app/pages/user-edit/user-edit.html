@@ -1,9 +1,9 @@
 @if (loading) {
 <p>Loading user...</p>
 } @else if (user) {
-<edit-user-form [user]="user" />
+<edit-user-form [user]="user" (onSaveUser)="handleUpdateUser($event)" />
 } @else if (userId === 'new') {
-<new-user-form (onSaveUser)="handleUserSave($event)" />
+<new-user-form (onSaveUser)="handleAddUser($event)" />
 } @else {
 <p>User not found.</p>
 }
