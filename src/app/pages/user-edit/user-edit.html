@@ -1,5 +1,7 @@
-@if (user) {
-<p>Editing user {{ user.userName }}</p>
-} @else {
+@if (loading) {
 <p>Loading user...</p>
+} @else if (user) {
+<edit-user-form [user]="user" />
+} @else {
+<new-user-form />
 }
