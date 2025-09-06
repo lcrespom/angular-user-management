@@ -1,4 +1,4 @@
-# TechInterview
+# Werfen Frontend technical test
 
 This Angular app handles a user database, using a simulated users service that stores
 its users in memory, and initially contains 3 sample users.
@@ -27,6 +27,7 @@ different, because the password cannot be changed.
     back to the users table.
 
 - `src/app/components`: this directory contains reusable components.
+
   - `new-user-form`: the form presented when clicking on the **New User** route.
   - `edit-user-form`: the form presented when clicking on the **Edit** button of
     a user in the user table.
@@ -34,6 +35,15 @@ different, because the password cannot be changed.
     reusable component. This component displays the combination of a label, an input field
     and the field validation error messages, if present. When using this component, the
     HTML template of a component with a form is much more manageable and easy to deal with.
+
+- `src/app/services`: this directory contains just one service, the `users-service` that
+  simulates a remote users REST API with methods to get all users, update an existing user
+  and add a new user.
+
+- `src/app/utils`: this directory contains `form-validation-utils`, a class with static methods
+  used to check validity of inputs and generate appropriate validation error messages. An
+  alternate approach could be to implement this as a singleton service and inject it in those
+  components that require it.
 
 ## ToDo
 
